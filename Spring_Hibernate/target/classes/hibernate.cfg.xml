@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+     <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
+    <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/db</property>
+    <property name="hibernate.connection.username">peter4405</property>
+    <property name="hibernate.connection.password">1234</property>
+    <!--自動建表 -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <!-- 透過 jta(預設)/thread 來自動維護 session 開啟與關閉資源 -->
+    <property name="current_session_context_class">thread</property>
+    <!-- 不使用二級緩存 -->
+    <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+    <!-- 格式化sql -->
+    <property name="hibernate.format_sql">true</property>
+    <!-- 顯示hibernate運行的sql-->
+    <property name="show_sql">true</property>
+    <!-- 加載映射 -->
+    <mapping resource="hibernate.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
